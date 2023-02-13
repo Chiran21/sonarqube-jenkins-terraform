@@ -46,18 +46,6 @@ pipeline {
                     env.selected_action = input  message: 'Select action to perform',ok : 'Proceed',id :'tag_id',
                     parameters:[choice(choices: ['destroy', 'abort'], description: 'Select action', name: 'action')]
                 }
-            }
-        }
-        stage('Terraform Destroy') { 
-            steps {
-                script {
-                    if (env.selected_action == "destroy") {
-                        sh 'terraform destroy -auto-approve'
-                    } else {
-                        sh 'echo We are not destroying the resource initialted, aborted!!!'
-                        sh 'exit 0'
-                    }
-                }
             } 
         }
     } 
