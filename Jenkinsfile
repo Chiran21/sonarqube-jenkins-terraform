@@ -40,13 +40,5 @@ pipeline {
                 sh 'terraform apply -auto-approve'
             } 
         }
-        stage('Run terraform destroy or not?') {
-            steps {
-                script {
-                    env.selected_action = input  message: 'Select action to perform',ok : 'Proceed',id :'tag_id',
-                    parameters:[choice(choices: ['destroy', 'abort'], description: 'Select action', name: 'action')]
-                }
-            } 
-        }
     } 
 }
