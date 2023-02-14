@@ -3,7 +3,6 @@ pipeline {
     environment { 
         AWS_ACCESS_KEY_ID     = credentials('aws_access_key_id') 
         AWS_SECRET_ACCESS_KEY = credentials('aws_security_key_id')
-        SBT_OPTS = "${SBT_OPTS} -Dsbt.color=false"
     }
     stages { 
         stage('Terraform Initialization') { 
