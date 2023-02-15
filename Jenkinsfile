@@ -39,11 +39,5 @@ pipeline {
                 sh 'terraform apply -auto-approve'
             } 
         }
-        stage('Terraform destroy') { 
-            steps { 
-                sh 'sleep 120'
-                sh 'terraform destroy -auto-approve'
-            }
-         }
     }
 }
